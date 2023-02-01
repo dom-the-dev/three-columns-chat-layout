@@ -1,44 +1,55 @@
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    overflow: hidden;
+}
+
+.chat-item {
+    padding: 15px 10px;
+    border-bottom: 1px solid black;
+}
+
+.chat-message {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: calc(100% - 40px);
+}
+
+.chat-message:nth-child(2n) {
+    margin-left: 40px;
+}
+
 
 .left, .middle, .right {
     position: absolute;
     top: 0;
     bottom: 0;
+    width: 100%;
     overflow-y: scroll;
 }
 
-.right,
-.middle,
 .left {
-    padding: 10px;
-    transition: transform .2s;
-    width: 100%;
+    background-color: dimgrey;
 }
 
-.left {
-    left: 0;
-    z-index: 1;
-    background-color: lightgrey;
+.middle {
+    padding: 10px;
+    background-color: whitesmoke;
 }
 
 .right {
-    right: 0;
-    z-index: 3;
+    padding: 10px;
     background-color: darkgrey;
 }
 
-.middle {
-    padding: 10px;
-    z-index: 2;
-    background-color: white;
-}
-
-.right,
-.middle {
+.middle, .right {
+    transition: transform .2s;
     transform: translateX(100%);
 }
 
@@ -47,73 +58,44 @@
     transform: translateX(0);
 }
 
-
-/* Tablet */
 @media screen and (min-width: 768px) {
+    #back-button {
+        display: none;
+    }
+
     .left {
         width: 300px;
     }
 
-    .right {
-        width: calc(100% - 300px);
-    }
-
     .middle {
         transform: translateX(0);
-        left: 300px;
+    }
+
+    .middle, .right {
         width: calc(100% - 300px);
-    }
-
-    #chat-back-button {
-        display: none;
+        left: 300px;
     }
 }
 
-
-.chat-list-item {
-    padding: 12px 10px;
-    border-bottom: 1px solid darkgrey;
-    cursor: pointer;
-}
-
-.chat-list-item:hover {
-    background-color: lightcyan;
-}
-
-
-.chat-message {
-    padding: 5px;
-    border: 1px solid black;
-    margin-bottom: 40px;
-    border-radius: 5px;
-    width: calc(100% - 30px);
-}
-
-.chat-message:nth-child(2n) {
-    margin-left: 30px;
-}
-
-/* Desktop */
-@media screen and (min-width: 992px) {
-    .right,
+@media screen and (min-width: 1024px) {
     .left {
         width: 400px;
-    }
-
-    .right {
-        transform: translateX(0);
     }
 
     .middle {
         width: calc(100% - 800px);
         left: 400px;
-
     }
 
-    #close-info-button,
-    #chat-back-button,
-    #show-info-button {
+    .right {
+        transform: translateX(0);
+        width: 400px;
+        left: unset;
+        right: 0;
+    }
+
+    #info-button,
+    #close-button {
         display: none;
     }
-
 }

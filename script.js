@@ -1,28 +1,22 @@
-const chatItems = document.getElementsByClassName('chat-list-item');
-const chatBackButton = document.getElementById('chat-back-button');
-const showInfoButton = document.getElementById('show-info-button');
-const closeInfoButton = document.getElementById('close-info-button');
-
-chatBackButton.addEventListener('click', closeChat)
-showInfoButton.addEventListener('click', showInfo)
-closeInfoButton.addEventListener('click', hideInfo)
+const chatItems = document.getElementsByClassName('chat-item');
+const backButton = document.getElementById('back-button');
+const infoButton = document.getElementById('info-button');
+const closeButton = document.getElementById('close-button');
 
 for(let i = 0; i < chatItems.length; i++) {
-  chatItems[i].addEventListener('click', openChat)
+  chatItems[i].addEventListener('click', function() {
+    document.querySelector('.middle').classList.add('show');
+  })
 }
 
-function openChat() {
-  document.querySelector('.middle').classList.add('show');
-  document.querySelector('.right').classList.remove('show');
-}
-
-function closeChat() {
+backButton.addEventListener('click', function() {
   document.querySelector('.middle').classList.remove('show');
-}
-function showInfo() {
-  document.querySelector('.right').classList.add('show');
-}
-function hideInfo() {
-  document.querySelector('.right').classList.remove('show');
-}
+})
 
+infoButton.addEventListener('click', function() {
+  document.querySelector('.right').classList.add('show');
+})
+
+closeButton.addEventListener('click', function() {
+  document.querySelector('.right').classList.remove('show');
+})
