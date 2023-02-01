@@ -13,6 +13,7 @@ for(let i = 0; i < chatItems.length; i++) {
 
 function openChat() {
   document.querySelector('.middle').classList.add('show');
+  document.querySelector('.right').classList.remove('show');
 }
 
 function closeChat() {
