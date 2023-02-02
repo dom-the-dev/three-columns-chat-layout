@@ -4,48 +4,81 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background-color: #F6F7FB;
+    --primary-color: #4C426D;
+}
+
 body {
     overflow: hidden;
+    background-color: white;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 13px;
 }
 
 .chat-item {
     padding: 15px 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--background-color);
+}
+
+.info-avatar,
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    background-color: darkgrey;
+    float: left;
+    margin-right: 15px;
+}
+
+
+.info-avatar {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    float: none;
+    margin: 50px auto 0;
+}
+
+.info-name {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.info-description {
+    margin: 20px 0;
+    text-align: center;
 }
 
 .chat-message {
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 1px solid var(--background-color);
+    border-radius: 20px 0 20px 20px;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 20px;
     width: calc(100% - 40px);
+    background-color: var(--background-color);
 }
 
 .chat-message:nth-child(2n) {
     margin-left: 40px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 20px;
+    background-color: var(--primary-color);
+    color: white;
 }
 
 
 .left, .middle, .right {
+    background-color: white;
     position: absolute;
     top: 0;
     bottom: 0;
     width: 100%;
     overflow-y: scroll;
-}
-
-.left {
-    background-color: dimgrey;
-}
-
-.middle {
-    padding: 10px;
-    background-color: whitesmoke;
-}
-
-.right {
-    padding: 10px;
-    background-color: darkgrey;
+    padding: 15px;
+    border-radius: 20px;
 }
 
 .middle, .right {
@@ -53,10 +86,26 @@ body {
     transform: translateX(100%);
 }
 
+.middle {
+    padding-top: 40px;
+}
+
 .right.show,
 .middle.show {
     transform: translateX(0);
 }
+
+
+.button-wrapper {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    top: 15px;
+    padding: 0 15px;
+}
+
 
 @media screen and (min-width: 768px) {
     #back-button {
