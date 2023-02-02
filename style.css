@@ -81,6 +81,10 @@ body {
     border-radius: 20px;
 }
 
+.left {
+    cursor: pointer;
+}
+
 .middle, .right {
     transition: transform .2s;
     transform: translateX(100%);
